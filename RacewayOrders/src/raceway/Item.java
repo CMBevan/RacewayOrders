@@ -1,5 +1,5 @@
 package raceway;
 
-public class Item {
-
+public interface Item {
+	double getCost();
 }
