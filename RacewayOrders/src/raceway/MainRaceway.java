@@ -21,21 +21,32 @@ public class MainRaceway {
 			valid = true;
 			try{
 				input = scan.nextInt();
-				if(input != 1 && input != 2)
+
+				if(input != 1 && input != 2)//invalid choice
 					throw new Exception();
+
 				System.out.println("How many people for the order?");
+
 				people = scan.nextInt();
-				if(people <= 0 || input >50)
+				if(people <= 0 || input >50) //invalid choice
 					throw new Exception();
 			}
+			/*
+			 * catches any errors, and repeats the loop
+			 */
 			catch(Exception e){
-				System.out.println("only press 1 or 2");
+				System.out.println("only press 1 or 2, or choose a +ve number of people and no more than 50");
 				valid = false;
 			}
-		}while(!valid);
+			scan.close();
 
+		}while(!valid); //we dont have a valid choice
+
+
+		
 		if(input == 1)
 			new Order(Order.OrderType.hellishSnack, people);
+		
 		else
 			new Order(Order.OrderType.hellOfAFeed, people);
 

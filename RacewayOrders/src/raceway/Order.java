@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+	
+	//two types of orders
 	public enum OrderType{
-		hellOfAFeed,
-		hellishSnack;
+		hellOfAFeed, //$5 snack one with 1.5 slices
+		hellishSnack; // $8 meal with 3 slices each
 	}
 
 	OrderType order; //type of order
@@ -16,9 +18,14 @@ public class Order {
 	List <Item> itemsInOrder; //All items in the final order
 
 	//based on orderType
-	double costPerPerson; 
-	private double slicesPerPerson; 
+	double costPerPerson;  //individual customer cost
+	private double slicesPerPerson; //amount of pizza slices a customer gets
 
+	/**
+	 * used to put together an order using the type of desired order and the number of people within the order
+	 * @param order
+	 * @param people - number of people per order
+	 */
 	public Order(OrderType order, int people){
 		itemsInOrder = new ArrayList<>();
 		List <Pizza> pizzasList = Pizza.addToList(); //get a list full of pizzas
@@ -30,6 +37,7 @@ public class Order {
 			costPerPerson = 5;
 			slicesPerPerson = 1.5;
 		}
+		//order type is hellOfAFeed
 		else{
 			costPerPerson = 8;
 			slicesPerPerson = 3;
@@ -42,7 +50,7 @@ public class Order {
 
 		long totalNeededPizzas = Math.round(pizzasNeeded);
 
-		//add the needed number of pizza
+		//add the needed number of pizzas to the order
 		for(int i = 0; i < totalNeededPizzas; i++){
 			Pizza p = pizzasList.remove(0);
 			
@@ -57,13 +65,12 @@ public class Order {
 			}
 		}
 
+		//add sides until we are over the maxCost
 		while(currentCost < maxCost){
-			Side s = Side.getSide(maxCost - currentCost);
+			FryerSide s = FryerSide.getSide(maxCost - currentCost);
 			currentCost += s.getCost();
 			itemsInOrder.add(s);
 		}
-		
-		
 		
 	/*-------------------------------------------------------------------------------- */
 		double costToDiscount;
@@ -81,7 +88,8 @@ public class Order {
 			System.out.println(p.getName());
 		
 		System.out.println("");
-		assert((currentCost - costToDiscount)== maxCost);
+		
+		assert((currentCost - costToDiscount)== maxCost); //this should always be the same
 
 		System.out.println("the total order cost before discounts is $"+ currentCost);
 		System.out.println("The amount to discount is $7.50 delivery fee + $"+costToDiscount);

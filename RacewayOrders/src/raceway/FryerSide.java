@@ -1,11 +1,11 @@
 package raceway;
 
-public class Side implements Item {
+public class FryerSide implements Item {
 
 	private double cost;
 	private String name;
 	
-	public Side(String name, double cost){
+	public FryerSide(String name, double cost){
 		this.cost = cost;
 		this.name = name;
 	}
@@ -23,7 +23,7 @@ public class Side implements Item {
 	 * @param remainder - amount of money left
 	 * @return - new side given
 	 */
-	public static Side getSide(double remainder){
-		return (remainder > 4.5)? new Side("Wedges, plain", 5): new Side("Garlic Bread", 4.5);
+	public static FryerSide getSide(double remainder){
+		return (remainder > 4.5)? new FryerSide("Wedges, plain", 5): new FryerSide("Garlic Bread", 4.5);
 	}
 }
