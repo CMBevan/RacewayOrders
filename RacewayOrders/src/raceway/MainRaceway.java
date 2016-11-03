@@ -11,6 +11,8 @@ public class MainRaceway {
 		do{
 			System.out.println("While I am an amazing programmer please double check and make sure that the output makes sense!");
 			System.out.println("In the end it's not my fault if you give out 5 doubles to a two person order!!!!");
+			System.out.println("");
+			System.out.println("");
 
 
 			System.out.println("1) Hellish Snack ($5): ");

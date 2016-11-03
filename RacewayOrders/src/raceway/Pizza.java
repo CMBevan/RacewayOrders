@@ -30,7 +30,7 @@ public class Pizza implements Item{
 	}
 	
 	public String getName(){
-		return name;
+		return name + ", double";
 	}
 	
 	public static ArrayList <Pizza> addToList(){
