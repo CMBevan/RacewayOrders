@@ -35,16 +35,12 @@ public class Order {
 			slicesPerPerson = 3;
 		}
 		maxCost = costPerPerson * people;
-		System.out.println("Total Cost is: $"+ maxCost);
 
 		double slicesNeeded = people * slicesPerPerson;
-		System.out.println("Slices needed: "+ slicesNeeded);
 
 		double pizzasNeeded = slicesNeeded / 8;
-		System.out.println("pizzas needed: "+ pizzasNeeded);
 
 		long totalNeededPizzas = Math.round(pizzasNeeded);
-		System.out.println("pizzas needed (rounded): "+ totalNeededPizzas);
 
 		//add the needed number of pizza
 		for(int i = 0; i < totalNeededPizzas; i++){
@@ -60,9 +56,6 @@ public class Order {
 				itemsInOrder.add(p);
 			}
 		}
-		
-		System.out.println("current cost is: $"+ currentCost);
-		System.out.println("price difference is: $"+ (maxCost - currentCost));
 
 		while(currentCost < maxCost){
 			Side s = Side.getSide(maxCost - currentCost);
@@ -81,6 +74,7 @@ public class Order {
 
 		costToDiscount = currentCost - maxCost;
 
+		System.out.println("");
 		System.out.println("the order is:");
 
 		for(Item p: itemsInOrder)
@@ -89,7 +83,7 @@ public class Order {
 		System.out.println("");
 		assert((currentCost - costToDiscount)== maxCost);
 
-		System.out.println("the total order cost before discounts is"+ currentCost);
+		System.out.println("the total order cost before discounts is $"+ currentCost);
 		System.out.println("The amount to discount is $7.50 delivery fee + $"+costToDiscount);
 		System.out.println("the final cost should be $"+ (currentCost - costToDiscount));
 

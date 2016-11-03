@@ -24,6 +24,6 @@ public class Side implements Item {
 	 * @return - new side given
 	 */
 	public static Side getSide(double remainder){
-		return (remainder > 4.5)? new Side("Wedges, plain", 5): new Side("Garlic Bread, plain", 4.5);
+		return (remainder > 4.5)? new Side("Wedges, plain", 5): new Side("Garlic Bread", 4.5);
 	}
 }

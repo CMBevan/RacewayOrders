@@ -9,8 +9,8 @@ public class MainRaceway {
 		int input = -1;
 		int people = -1;
 		do{
-			System.out.println("1) Hellish Snack ($5)");
-			System.out.println("2) Hell of a Feed ($8)");
+			System.out.println("1) Hellish Snack ($5): ");
+			System.out.println("2) Hell of a Feed ($8): ");
 			Scanner scan = new Scanner(System.in);
 			valid = true;
 			try{
