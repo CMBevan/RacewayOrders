@@ -15,14 +15,14 @@ public class MainRaceway {
 			System.out.println("");
 
 
-			System.out.println("1) Hellish Snack ($5): ");
+			System.out.println("1) Hellish Snack ($5): or ");
 			System.out.println("2) Hell of a Feed ($8): ");
 			Scanner scan = new Scanner(System.in);
 			valid = true;
 			try{
 				input = scan.nextInt();
 
-				if(input != 1 && input != 2)//invalid choice
+				if(input != 1 && input != 2 && input != 3)//invalid choice
 					throw new Exception();
 
 				System.out.println("How many people for the order?");
@@ -43,12 +43,14 @@ public class MainRaceway {
 		}while(!valid); //we dont have a valid choice
 
 
-		
+
 		if(input == 1)
 			new Order(Order.OrderType.hellishSnack, people);
-		
-		else
+
+		else if (input == 2)
 			new Order(Order.OrderType.hellOfAFeed, people);
+		else
+			new Order();
 
 	}
 
