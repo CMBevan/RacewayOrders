@@ -25,14 +25,12 @@ public class Pizza implements Item{
 		this.cost = cost;
 	}
 
-	public double getCost(){
-		return cost;
-	}
-	
-	public String getName(){
-		return name + ", double";
-	}
-	
+
+	/**
+	 * returns an ArrayList with pizzas already added in an order, the idea is to 
+	 * remove the 0th element and use it as a queue
+	 * @return
+	 */
 	public static ArrayList <Pizza> addToList(){
 		items = new ArrayList<>();
 		items.add(new Pizza("Lust",16));
@@ -61,5 +59,14 @@ public class Pizza implements Item{
 		items.add(new Pizza("Pride",16));
 		return items;
 	}
+	
+	public double getCost(){
+		return cost;
+	}
+	
+	public String getName(){
+		return name + ", double";
+	}
+	
 
 }

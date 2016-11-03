@@ -67,7 +67,7 @@ public class Order {
 
 		//add sides until we are over the maxCost
 		while(currentCost < maxCost){
-			FryerSide s = FryerSide.getSide(maxCost - currentCost);
+			Side s = Side.getSide(maxCost - currentCost);
 			currentCost += s.getCost();
 			itemsInOrder.add(s);
 		}
