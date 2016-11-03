@@ -7,23 +7,40 @@ public class Order {
 		hellOfAFeed,
 		hellishSnack;
 	}
-	
+
 	OrderType order; //type of order
 	int numberOfPeople; 
-	double maxCost; //final cost
+	final double maxCost; //final cost
 	double currentCost; //counter for the current cost
-	double costPerPerson; 
-	List <Pizza> items; 
+	List <Item> items; //All items in the final order
 	
+	//based on orderType
+	double costPerPerson; 
+	private double slicesPerPerson; 
+
 	public Order(OrderType order, int people){
 		this.order = order;
 		this.numberOfPeople = people;
-		
-		if(order == OrderType.hellishSnack)
+
+		if(order == OrderType.hellishSnack){
 			costPerPerson = 5;
-		else
+			slicesPerPerson = 1.5;
+		}
+		else{
 			costPerPerson = 8;
+			slicesPerPerson = 3;
+		}
+		maxCost = costPerPerson * people;
+		System.out.println("Total Cost is: $"+ maxCost);
+
+		double slicesNeeded = people * slicesPerPerson;
+		System.out.println("Slices needed: "+ slicesNeeded);
 		
+		double pizzasNeeded = slicesNeeded / 8;
+		System.out.println("pizzas needed: "+ pizzasNeeded);
 		
+		long pizzas = Math.round(pizzasNeeded);
+		System.out.println("pizzas needed (rounded): "+ pizzas);
+
 	}
 }
