@@ -2,12 +2,15 @@ package raceway;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-
+/**
+ * 
+ * @author Connor
+ *
+ */
 public class Pizza implements Item{
 
-	public static List <Pizza> items;
+	public static ArrayList <Pizza> items;
 
 	private String name;
 	private double cost;
@@ -30,7 +33,7 @@ public class Pizza implements Item{
 		return name;
 	}
 	
-	public static List <Pizza> addToList(){
+	public static ArrayList <Pizza> addToList(){
 		items = new ArrayList<>();
 		items.add(new Pizza("Lust",16));
 		items.add(new Pizza("Greed",16));
