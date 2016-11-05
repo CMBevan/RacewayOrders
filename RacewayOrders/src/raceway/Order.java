@@ -95,7 +95,7 @@ public class Order {
 	 * makes the given order
 	 */
 	private void makeOrder(){
-		itemsInOrder = new ArrayList<>();
+		itemsInOrder = new ArrayList<Item>();
 		List <Pizza> pizzasList = Pizza.addToList(); //get a list full of pizzas
 		
 		if(order == OrderType.hellishSnack){

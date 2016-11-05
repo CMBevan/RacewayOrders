@@ -53,7 +53,7 @@ public class OrderSelector extends JFrame {
 			selection = i;
 		}
 
-		@Override
+		
 		public void itemStateChanged(ItemEvent arg0) {			
 			//Give the game the desired number of players for it
 			if(selection == 2)

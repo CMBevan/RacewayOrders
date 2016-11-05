@@ -32,7 +32,7 @@ public class Pizza implements Item{
 	 * @return
 	 */
 	public static ArrayList <Pizza> addToList(){
-		items = new ArrayList<>();
+		items = new ArrayList<Pizza>();
 		items.add(new Pizza("Lust",16));
 		items.add(new Pizza("Greed",16));
 		items.add(new Pizza("Gluttony",16));

@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import raceway.Order;
 
 @SuppressWarnings("serial")
-public class RaceFrame extends JFrame implements java.awt.event.KeyListener{
+public class RaceFrame extends JFrame {
 	RaceCanvas canvas;
 	
 	public RaceFrame(Order order){
@@ -22,24 +22,6 @@ public class RaceFrame extends JFrame implements java.awt.event.KeyListener{
 		pack();                             // pack components tightly together
 		setResizable(false);                // prevent us from being resizeable
 		setVisible(true);                   // make sure we are visible!
-		addKeyListener((KeyListener) this);
 	}
 
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 }
