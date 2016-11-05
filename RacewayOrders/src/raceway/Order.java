@@ -29,6 +29,7 @@ public class Order {
 	private double slicesPerPerson; //amount of pizza slices a customer gets
 	
 	private String [] output;
+	private double [] outputValues;
 	
 	/**
 	 * create an order with no specified order type or number of players,
@@ -158,9 +159,16 @@ public class Order {
 
 		output = new String [3];
 		
+		outputValues = new double [3];
 		output[0] = ("the total order cost before discounts is $"+ (currentCost + 7.5)) ;
+		outputValues[0] = (currentCost + 7.5) ;
 		output[1] = ("The amount to discount is $7.50 delivery fee + $"+costToDiscount);
+		outputValues[1] = +costToDiscount;
 		output[2] = ("the final cost should be $"+ (currentCost - costToDiscount));
+		outputValues[2] = currentCost - costToDiscount;
+		
+		
+		
 //		System.out.println("the total order cost before discounts is $"+ (currentCost + 7.5));
 //		System.out.println("The amount to discount is $7.50 delivery fee + $"+costToDiscount);
 //		System.out.println("the final cost should be $"+ (currentCost - costToDiscount));
@@ -197,6 +205,18 @@ public class Order {
 	 */
 	public String[] getOutput() {
 		return output;
+	}
+	
+	public double [] getOutputValues(){
+		return outputValues;
+	}
+	
+	public OrderType getOrderType(){
+		return order;
+	}
+	
+	public int getNumberPeople(){
+		return numberOfPeople;
 	}
 	
 	

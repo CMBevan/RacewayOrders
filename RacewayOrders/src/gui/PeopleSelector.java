@@ -21,9 +21,9 @@ public class PeopleSelector extends JFrame {
 		
 		assert(this.order != null);
 		
-		String s [] = new String [50];
-		for(int i = 0;i<50;i++){
-			s[i] = Integer.toString(i+1);
+		String s [] = new String [43];
+		for(int i = 0;i<43;i++){
+			s[i] = Integer.toString(i+3);
 		}
 		//JComboBox cb = new JComboBox(new String []{"one","two"});
 		JComboBox cb = new JComboBox(s);
