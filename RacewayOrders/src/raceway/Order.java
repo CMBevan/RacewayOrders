@@ -38,7 +38,8 @@ public class Order {
 	public Order(){
 		new OrderSelector(this);
 		while(!set){
-			System.out.println("stuck in loop");
+			System.out.println("");
+			;
 
 		}
 	//	System.out.println("out of loop");
@@ -48,7 +49,8 @@ public class Order {
 		//new OrderSelector(this);
 		
 		while(!set){
-			System.out.println("stuck in loop");
+			System.out.println("");
+			;
 
 		}
 	//	System.out.println("out of loop");

@@ -50,8 +50,8 @@ public class RaceCanvas extends JPanel {
 	@Override
 	public void paint(Graphics g){
 		
-		g.drawString("- please double check and make sure that the output makes sense, in the end it's not my fault if you give out 5 doubles to a two person order!!!!", 5, 50);
-		g.drawString("- Also please only use as a guide and replace items as required: e.g. Vege Pizzas & G.F. Pizzas are specifically requested,", 5, 80);
+		g.drawString("- Please double check and make sure that the output makes sense, in the end it's not my fault if you give out 5 doubles to a two person order!!!!", 5, 50);
+		g.drawString("- Also please only use as a guide and replace items as required: e.g. Vege Pizzas or G.F. Pizzas are specifically requested,", 5, 80);
 		g.drawString("   or replacing some wedges with G.Bread if heaps of wedges and not many G.Breads", 5, 95);
 		
 		g.setColor(Color.BLUE);
@@ -96,7 +96,7 @@ public class RaceCanvas extends JPanel {
 		g.setFont(new Font("Arial", Font.BOLD, 14));
 		g.setColor(Color.BLACK);
 		g.drawString("Final Total", startX, startY + (i*20));
-		g.drawString(" $"+String.format("%.2f",outputValues[2]), startX+150, startY + (i*20));
+		g.drawString("$"+String.format("%.2f",outputValues[2]), startX+150, startY + (i*20));
 		i++;
 		
 		//top titles
