@@ -1,12 +1,17 @@
 package gui;
 
 import raceway.Order;
+
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 
@@ -22,47 +27,20 @@ public class OrderSelector extends JFrame {
 			System.out.println("order is null");
 		
 		assert(order != null);
-		
+			
 		setLayout(new FlowLayout());
-		
-		
+				
 		ButtonGroup group = new ButtonGroup();
 		JRadioButton snack = new JRadioButton("Hellish Snack");
 		JRadioButton feed = new JRadioButton("Hell of A Feed");
-
 		add(snack);
 		add(feed);
 		group.add(snack);
 		group.add(feed);
+		
 
 		snack.addItemListener( (ItemListener) new SelectedNumber(2));
 		feed.addItemListener( (ItemListener) new SelectedNumber(3));
-
-		ButtonGroup group2 = new ButtonGroup();
-
-		
-		JRadioButton b = new JRadioButton("8");
-		JRadioButton b1 = new JRadioButton("7");
-		JRadioButton b2 = new JRadioButton("4");
-		JRadioButton b3 = new JRadioButton("5");
-		JRadioButton b4 = new JRadioButton("6");
-		
-		setLayout(new FlowLayout());
-	//	add(group2);
-		group2.add(b);
-		group2.add(b1);
-		group2.add(b2);
-		group2.add(b3);
-		group2.add(b4);
-		
-		add(b);
-		add(b1);
-		add(b2);
-		add(b3);
-		add(b4);
-		
-
-
 
 		setSize(500, 100);
 		setVisible(true);
@@ -84,6 +62,8 @@ public class OrderSelector extends JFrame {
 				order.setOrderType(Order.OrderType.hellOfAFeed);
 			
 			//remove window after selection is made
+			
+			order.set = true;
 			setVisible(false);
 			dispose();
 			

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gui.OrderSelector;
+import gui.PeopleSelector;
 import gui.RaceFrame;
 
 public class Order {
@@ -14,7 +15,7 @@ public class Order {
 		hellishSnack; // $8 meal with 3 slices each
 	}
 
-	boolean set = false; // this is used to make sure that number of people and order type are set
+	public boolean set = false; // this is used to make sure that number of people and order type are set
 	
 	OrderType order; //type of order
 	int numberOfPeople; 
@@ -27,12 +28,45 @@ public class Order {
 	double costPerPerson;  //individual customer cost
 	private double slicesPerPerson; //amount of pizza slices a customer gets
 	
+	private String [] output;
+	
+	/**
+	 * create an order with no specified order type or number of players,
+	 * will get this information from the player using a GUI and will display results on GUI
+	 */
 	public Order(){
 		new OrderSelector(this);
-		RaceFrame rFrame = new RaceFrame();
 		while(!set){
-			
+			System.out.println("stuck in loop");
+
 		}
+	//	System.out.println("out of loop");
+		set = false;
+		new PeopleSelector(this);
+
+		//new OrderSelector(this);
+		
+		while(!set){
+			System.out.println("stuck in loop");
+
+		}
+	//	System.out.println("out of loop");
+			
+		makeOrder();
+		
+		RaceFrame rFrame = new RaceFrame(this);
+
+		
+		//prints out the order
+				for(Item p: itemsInOrder)
+					System.out.println(p.getName());
+				
+				System.out.println();
+				
+				//print results
+				for(int i = 0; i <output.length; i++)
+					System.out.println(output[i]);
+
 	}
 
 	/**
@@ -44,6 +78,17 @@ public class Order {
 		this.order = order;
 		this.numberOfPeople = people;
 		makeOrder();
+		
+		//prints out the order
+		for(Item p: itemsInOrder)
+			System.out.println(p.getName());
+		
+		System.out.println();
+		
+		//print results
+		for(int i = 0; i <output.length; i++)
+			System.out.println(output[i]);
+		
 	}
 	
 	/**
@@ -104,25 +149,55 @@ public class Order {
 		System.out.println("");
 		System.out.println("the order is:");
 
-		for(Item p: itemsInOrder)
-			System.out.println(p.getName());
+//		for(Item p: itemsInOrder)
+//			System.out.println(p.getName());
 		
 		System.out.println("");
 		
 		assert((currentCost - costToDiscount)== maxCost); //this should always be the same
 
-		System.out.println("the total order cost before discounts is $"+ (currentCost + 7.5));
-		System.out.println("The amount to discount is $7.50 delivery fee + $"+costToDiscount);
-		System.out.println("the final cost should be $"+ (currentCost - costToDiscount));
+		output = new String [3];
+		
+		output[0] = ("the total order cost before discounts is $"+ (currentCost + 7.5)) ;
+		output[1] = ("The amount to discount is $7.50 delivery fee + $"+costToDiscount);
+		output[2] = ("the final cost should be $"+ (currentCost - costToDiscount));
+//		System.out.println("the total order cost before discounts is $"+ (currentCost + 7.5));
+//		System.out.println("The amount to discount is $7.50 delivery fee + $"+costToDiscount);
+//		System.out.println("the final cost should be $"+ (currentCost - costToDiscount));
 
 
+	}
+	
+	public void checkSet(){
+		if(order != null)// && numberOfPeople != 0)
+			this.set = true;
 	}
 	
 	public void setOrderType(OrderType type){
 		this.order = type;
 	}
 	
+	public void setNumberPeople(int i){
+		numberOfPeople = i;
+	}
+	
 	public void setNumberOfPeople(int people){
 		this.numberOfPeople = people;
 	}
+
+	/**
+	 * @return the itemsInOrder
+	 */
+	public List<Item> getItemsInOrder() {
+		return itemsInOrder;
+	}
+
+	/**
+	 * @return the output
+	 */
+	public String[] getOutput() {
+		return output;
+	}
+	
+	
 }

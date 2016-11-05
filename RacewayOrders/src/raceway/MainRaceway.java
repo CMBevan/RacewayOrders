@@ -6,6 +6,7 @@ public class MainRaceway {
 
 	public static void main(String[] args) {
 		boolean valid = true;
+		new Order();
 		int input = -1;
 		int people = -1;
 		do{
